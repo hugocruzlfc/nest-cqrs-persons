@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db:
+    container_name: nest-cqrs-db
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: nest-cqrs
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - nest-cqrs-db-data:/var/lib/postgresql/data
+volumes:
+  nest-cqrs-db-data:
